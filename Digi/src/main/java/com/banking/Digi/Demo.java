@@ -14,14 +14,14 @@ public class Demo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// declaration and instantiation of object/variables
-		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver\\chromedriver.exe"); // to say
+		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver\\chromedriver.exe\\"); // to say"
 		// where
 		// the
 		// web
 		// drivers
 		// are
 
-		ChromeOptions options = new ChromeOptions();
+		ChromeOptions options   = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(options); // method initialized as driver
 

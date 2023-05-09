@@ -1,46 +1,49 @@
 package com.banking.Digi;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Demo02 {
+public class FireFox_Drivertest{
 
 	// private static final WebElement WebElement = null;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// declaration and instantiation of object/variables
-		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver\\chromedriver.exe"); // to say where the web drivers are
-
-		ChromeOptions options = new ChromeOptions();
+		//System.setProperty("webdriver.chrome.driver", "C:\\SeleniumDrivers\\chromedriver\\chromedriver.exe"); // to say
+		//System.setProperty("webdriver.gecko.driver", "C:\\SeleniumDrivers\\geckodriver\\geckodriver.exe\\");
+		//FirefoxDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
+		
+		System.setProperty("webdriver.edge.driver", "C:\\SeleniumDrivers\\edgedriver\\msedgedriver.exe");
+		//FirefoxDriver driver = new FirefoxDriver();
+		WebDriver driver = new EdgeDriver();
+		
+		/*ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
-		WebDriver driver = new ChromeDriver(options); // method initialized as driver
+		WebDriver driver = new ChromeDriver(options); // method initialized as driver*/
 
 		// options.addArguments("--disable-notifications");//
 		// Launch the website
 		driver.get("http://www.google.com/");
-		driver.manage().window().maximize();
 
-		//driver.navigate().refresh(); 01
-		Alert alert = driver.switchTo().alert();
-		System.out.println(alert.getText());
-		Thread.sleep(2000);
-		alert.accept();
+		driver.navigate().refresh();
 
 		try // as this may give errors, good to put inside catch and try block
 		{
 			// Click on the search text box and send value "simplilearn"
-			//driver.findElement(By.xpath("//span[@class='gb_Rd']")).click();//Try xxxxxxxxxx
+
 			//driver.findElement(By.LinkText("No thanks")).click();
 			driver.findElement(By.name("q")).sendKeys("selenium");
 
-			//WebElement m = driver.findElement(By.name("q"));02
-			//m.sendKeys(Keys.ENTER);02
+			WebElement m = driver.findElement(By.name("q"));
+			m.sendKeys(Keys.ENTER);
 			// code for ENTER button of Keyboard, need to create "m" webelement for that
 
 			//driver.findElement(By.name("btnK")).click();
@@ -63,7 +66,7 @@ public class Demo02 {
 		} catch (Exception ex) {
 			System.out.println("error" + ex);
 		} finally {
-			//driver.close();03
+			driver.close();
 		}
 	}
 
