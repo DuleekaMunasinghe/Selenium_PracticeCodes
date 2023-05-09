@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="classes">
+  <test thread-count="5" name="ParallelTest">
+    <classes>
+      <class name="com.banking.Digi.ParallelTestOne"/>
+      <class name="com.banking.Digi.ParallelTestTwo"/>
+    </classes>
+  </test> <!-- ParallelTest -->
+</suite> <!-- ParallelSuite -->
